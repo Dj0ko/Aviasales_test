@@ -1,0 +1,67 @@
+.filter {
+  width: 232px;
+  height: 100%;
+  padding-top: 20px;
+
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter__list {
+  margin: 10px 0;
+}
+
+.filter__title {
+  padding-left: 20px;
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.filter__list-item {
+  display: flex;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f1fcff;
+  }
+}
+
+.filter__label {
+  position: relative;
+  width: 100%;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.filter__input + label::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+
+  width: 18px;
+  height: 18px;
+
+  border: 1px solid #9abbce;
+  border-radius: 2px;
+}
+
+.filter__input:checked + label::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 16px;
+
+  width: 12px;
+  height: 8px;
+
+  background-image: url('filter-tick.svg');
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,57 @@
+// Global
+body {
+  font-family: $Opensans;
+  font-size: 12px;
+  font-weight: 600;
+
+  color: $dark-gray;
+  background-color: $light-blue;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+p,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+//page-main
+.page-main {
+  display: flex;
+
+  width: 704px;
+  margin: 0 auto;
+  padding-top: 160px;
+}
+
+//tickets
+.tickets {
+  width: 502px;
+}
