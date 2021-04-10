@@ -3,8 +3,6 @@ import Filter from '../filter/filter';
 
 import '../../scss/style.scss';
 
-console.log(`sss`);
-
 const App = () => (
   <main className="page-main">
     <h1 className="visually-hidden">Поиск билетов</h1>
