@@ -9,13 +9,17 @@ const App = () => (
     <Filter />
     <section className="tickets">
       <div className="tickets__sorting sorting">
-        <button type="button" className="button sorting__button">Самый дешевый</button>
-        <button type="button" className="button sorting__button">Самый быстрый</button>
+        <button type="button" className="button sorting__button">
+          Самый дешевый
+        </button>
+        <button type="button" className="button sorting__button">
+          Самый быстрый
+        </button>
       </div>
       <ul className="tickets__list">
         <li className="tickets__list-item ticket">
           <span className="ticket__price">13 400 Р</span>
-          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании"/>
+          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании" />
           <dl className="ticket__route ticket__route--one-way">
             <dt className="ticket_text">MOW - HKT</dt>
             <dd className="ticket_text">10:45 - 08:00</dd>
@@ -35,7 +39,7 @@ const App = () => (
         </li>
         <li className="tickets__list-item ticket">
           <span className="ticket__price">13 400 Р</span>
-          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании"/>
+          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании" />
           <dl className="ticket__route ticket__route--one-way">
             <dt className="ticket_text">MOW - HKT</dt>
             <dd className="ticket_text">10:45 - 08:00</dd>
@@ -55,7 +59,7 @@ const App = () => (
         </li>
         <li className="tickets__list-item ticket">
           <span className="ticket__price">13 400 Р</span>
-          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании"/>
+          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании" />
           <dl className="ticket__route ticket__route--one-way">
             <dt className="ticket_text">MOW - HKT</dt>
             <dd className="ticket_text">10:45 - 08:00</dd>
@@ -75,7 +79,7 @@ const App = () => (
         </li>
         <li className="tickets__list-item ticket">
           <span className="ticket__price">13 400 Р</span>
-          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании"/>
+          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании" />
           <dl className="ticket__route ticket__route--one-way">
             <dt className="ticket_text">MOW - HKT</dt>
             <dd className="ticket_text">10:45 - 08:00</dd>
@@ -95,7 +99,7 @@ const App = () => (
         </li>
         <li className="tickets__list-item ticket">
           <span className="ticket__price">13 400 Р</span>
-          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании"/>
+          <img src="#" className="ticket_company-logo" alt="логотип авиакомпании" />
           <dl className="ticket__route ticket__route--one-way">
             <dt className="ticket_text">MOW - HKT</dt>
             <dd className="ticket_text">10:45 - 08:00</dd>
@@ -116,6 +120,6 @@ const App = () => (
       </ul>
     </section>
   </main>
-)
+);
 
 export default App;
