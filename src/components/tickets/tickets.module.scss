@@ -1,8 +1,11 @@
+$white: #ffffff;
+$sky-blue: #2196f3;
+
 .button {
   width: 50%;
   padding: 15px 0;
 
-  font-family: $Opensans;
+  font-family: inherit;
   font-size: inherit;
   line-height: 20px;
   text-transform: uppercase;

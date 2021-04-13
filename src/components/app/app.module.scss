@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../../fonts/OpenSans-Regular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../../fonts/OpenSans-SemiBold.woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+$Opensans: 'Open Sans', 'Arial', sans-serif;
+$light-blue: #f1fcff;
+$dark-gray: #4a4a4a;
+
+body {
+  font-family: $Opensans;
+  font-size: 12px;
+  font-weight: 600;
+
+  color: $dark-gray;
+  background-color: $light-blue;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+p,
+button,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 160px;
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    width: 80px;
+    height: 90px;
+
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+
+    background-image: url('./logo.svg');
+    background-repeat: no-repeat;
+  }
+
+  @media (min-width: 960px) {
+    width: 754px;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
