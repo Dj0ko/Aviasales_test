@@ -1,38 +1,6 @@
 $white: #ffffff;
 $sky-blue: #2196f3;
 
-.button {
-  width: 50%;
-  padding: 15px 0;
-
-  font-family: inherit;
-  font-size: inherit;
-  line-height: 20px;
-  text-transform: uppercase;
-  color: inherit;
-  font-weight: 600;
-
-  border: 1px solid #dfe5ec;
-  background-color: $white;
-  outline: none;
-
-  &--active {
-    color: $white;
-    border-color: $sky-blue;
-    background-color: $sky-blue;
-  }
-
-  &--cheapest {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-
-  &--fastest {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-}
-
 .tickets {
   width: 300px;
   margin: 0 auto;

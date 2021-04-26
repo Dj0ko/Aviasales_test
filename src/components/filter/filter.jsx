@@ -3,7 +3,32 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions/actions';
 
+// import aviasalesDBService from '../../services/services';
+
 import classes from './filter.module.scss';
+
+// aviasalesDBService.getSearchId()
+//   .then(data => aviasalesDBService.getTickets(data.searchId))
+//   .then(data => console.log(data.body.tickets));
+
+// aviasalesDBService.getSearchId()
+//   .then(data => aviasalesDBService.getTickets(data.searchId))
+//   .catch(err => err)
+//   .then(data => console.log(data))
+// .catch(err => err)
+
+// aviasalesDBService.getSearchId()
+// .then(data => aviasalesDBService.getTickets(data.searchId))
+// .then((tickets) => {
+//   console.log('searchId: ', tickets.searchId);
+//   console.log('tickets: ', tickets.body.stop);
+//   if (!tickets.body.stop) {
+//     aviasalesDBService.getSearchId();
+//   }
+// })
+// .then(data => console.log(data));
+
+// getTickets();
 
 const Filter = ({
   transferFilter,
