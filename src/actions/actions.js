@@ -14,16 +14,36 @@ export const showTwoTransfers = () => ({type: 'TWO_TRANSFERS'});
 
 export const showThreeTransfers = () => ({type: 'THREE_TRANSFERS'});
 
-export const ticketsFetchDataSuccess = (tickets) => ({
+export const ticketsFetchDataSuccess = (tickets) => ({  
   type: 'TICKETS_FETCH_DATA_SUCCESS',
   tickets
 })
 
+function getAllTickets(id, dispatch) {
+  return aviasalesDBService.getTickets(id)
+    .then(data => {
+      if (!data.body.stop) {
+        dispatch(ticketsFetchDataSuccess(data.body.tickets))
+        
+        return getAllTickets(data.searchId, dispatch);
+      } 
+      if (data.body.stop) {
+        dispatch(ticketsFetchDataSuccess(data.body.tickets));
+      }
+        return data.body.tickets
+      }
+      
+    )
+    .catch((err)=> {
+      if (err instanceof SyntaxError) {
+        getAllTickets(id, dispatch)
+      }
+    })
+}
+
 export const ticketsFetchData = () => (dispatch) => {
   aviasalesDBService.getSearchId()
-    .then(data => aviasalesDBService.getTickets(data.searchId))
-    .then(data => dispatch({
-      type: 'TICKETS_FETCH_DATA_SUCCESS',
-      tickets: data.body.tickets
-    }))
+    .then(({ searchId }) => {
+      getAllTickets(searchId, dispatch)
+    })
 }

@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src --ext .jsx",
+    "lint": "eslint ./src --ext .jsx, .js",
     "lint:fix": "eslint ./src --ext .jsx --fix",
     "prettier": "prettier --write src/**/*.jsx"
   },

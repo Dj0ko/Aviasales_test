@@ -16,11 +16,11 @@ class AviasalesDBService {
 
     if(!res.ok) {
       if (res.status === 500) {
-        this.getTickets(searchId);
+        this.getTickets(searchId)
       } else {
         throw new Error();
       }
-    }    
+    }
 
     const body = await res.json();
 
