@@ -18,16 +18,23 @@ const Sorting = ({ classButtonCheapest, classButtonFastest, showCheapest, showFa
 );
 
 const mapStateToProps = (state) => {
-  if (!state.sortReducer) {
+  if (!state.sortReducer && state.sortReducer !== null) {
     return {
       classButtonCheapest: `${classes.button} ${classes['button--cheapest']} ${classes['button--active']}`,
       classButtonFastest: `${classes.button} ${classes['button--fastest']}`,
     };
   }
 
+  if (state.sortReducer && state.sortReducer !== null) {
+    return {
+      classButtonCheapest: `${classes.button} ${classes['button--cheapest']}`,
+      classButtonFastest: `${classes.button} ${classes['button--fastest']} ${classes['button--active']}`,
+    };
+  }
+
   return {
     classButtonCheapest: `${classes.button} ${classes['button--cheapest']}`,
-    classButtonFastest: `${classes.button} ${classes['button--fastest']} ${classes['button--active']}`,
+    classButtonFastest: `${classes.button} ${classes['button--fastest']}`,
   };
 };
 

@@ -1,4 +1,4 @@
-const sortReducer = (state = false, action) => {
+const sortReducer = (state = null, action) => {
   switch (action.type) {
     case 'CHEAPEST':
       return false;

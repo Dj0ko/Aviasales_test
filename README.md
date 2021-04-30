@@ -1,1 +1,1 @@
-fix husky#1
+https://aviasales-test-ten.vercel.app

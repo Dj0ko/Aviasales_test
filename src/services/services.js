@@ -14,12 +14,8 @@ class AviasalesDBService {
   async getTickets(searchId) {
     const res = await fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`);
 
-    if(!res.ok) {
-      if (res.status === 500) {
-        this.getTickets(searchId)
-      } else {
-        throw new Error();
-      }
+    if(!res.ok && res.status !== 500) {
+      throw new Error();
     }
 
     const body = await res.json();

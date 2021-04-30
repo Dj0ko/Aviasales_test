@@ -14,6 +14,10 @@ export const showTwoTransfers = () => ({type: 'TWO_TRANSFERS'});
 
 export const showThreeTransfers = () => ({type: 'THREE_TRANSFERS'});
 
+export const hasSpinner = () => ({type: 'HAS_SPINNER'});
+
+export const noSpinner = () => ({type: 'NO_SPINNER'});
+
 export const ticketsFetchDataSuccess = (tickets) => ({  
   type: 'TICKETS_FETCH_DATA_SUCCESS',
   tickets
@@ -24,15 +28,15 @@ function getAllTickets(id, dispatch) {
     .then(data => {
       if (!data.body.stop) {
         dispatch(ticketsFetchDataSuccess(data.body.tickets))
-        
+        dispatch(hasSpinner())
         return getAllTickets(data.searchId, dispatch);
       } 
       if (data.body.stop) {
+        dispatch(noSpinner())
         dispatch(ticketsFetchDataSuccess(data.body.tickets));
       }
         return data.body.tickets
       }
-      
     )
     .catch((err)=> {
       if (err instanceof SyntaxError) {
