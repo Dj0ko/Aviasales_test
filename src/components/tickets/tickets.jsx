@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Spinner from '../spinner/spinner';
 import Sorting from '../sorting/sorting';
 
-import * as actions from '../../actions/actions';
+import * as actions from '../../redux/actions/actions';
 
 import classes from './tickets.module.scss';
 
@@ -49,7 +49,7 @@ const Tickets = ({ ticketsList, loadingState }) => {
   return (
     <section className={classes.tickets}>
       <Sorting />
-      {loadingState ? <Spinner /> : null}
+      {loadingState && <Spinner />}
       <ul>
         {ticketsList.map((ticket, index) => {
           // Получаем цену билета
