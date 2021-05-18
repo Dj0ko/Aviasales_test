@@ -1,13 +1,8 @@
-.tickets {
+.product__list {
   width: 300px;
   margin: 0 auto;
 
   @media (min-width: 960px) {
     width: 502px;
   }
-}
-
-.tickets__info {
-  margin-top: 50px;
-  font-size: 16px;
 }

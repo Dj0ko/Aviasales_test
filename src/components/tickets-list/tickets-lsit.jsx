@@ -1,17 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Spinner from '../spinner/spinner';
-import Sorting from '../sorting/sorting';
 import Ticket from '../ticket/ticket';
 
 import * as actions from '../../redux/actions/actions';
 
-import classes from './tickets.module.scss';
+import classes from './tickets-list.module.scss';
 
-const Tickets = ({ ticketsList, loadingState }) => {
+const TicketsList = ({ ticketsList }) => {
+  // Если нет подходящий рейсов, то выводим об этом сообщение
   if (ticketsList[0] === 'nothing') {
-    return <p className={classes.tickets__info}>Рейсов, подходящих под заданные фильтры, не найдено</p>;
+    return <p className={classes.info}>Рейсов, подходящих под заданные фильтры, не найдено</p>;
   }
 
   const allTickets = ticketsList.map((ticket, index) => {
@@ -21,13 +20,7 @@ const Tickets = ({ ticketsList, loadingState }) => {
     return '';
   });
 
-  return (
-    <section className={classes.tickets}>
-      <Sorting />
-      {loadingState && <Spinner />}
-      <ul>{allTickets}</ul>
-    </section>
-  );
+  return <ul>{allTickets}</ul>;
 };
 
 // Функция сортировки билетов
@@ -84,18 +77,15 @@ const getFilteredTickets = (arr, filter, sorting) => {
 };
 
 const mapStateToProps = (state) => ({
-  loadingState: state.loadingReducer,
   ticketsList: getFilteredTickets(state.ticketsReducer, state.filterReducer, state.sortReducer),
 });
 
-export default connect(mapStateToProps, actions)(Tickets);
+export default connect(mapStateToProps, actions)(TicketsList);
 
-Tickets.defaultProps = {
+TicketsList.defaultProps = {
   ticketsList: [],
-  loadingState: false,
 };
 
-Tickets.propTypes = {
+TicketsList.propTypes = {
   ticketsList: PropTypes.arrayOf(PropTypes.objectOf),
-  loadingState: PropTypes.bool,
 };

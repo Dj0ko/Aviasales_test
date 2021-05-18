@@ -1,28 +1,33 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import TransfersFilterList from '../transfers-filter-list/transfers-filter-list';
+// import PropTypes from 'prop-types';
+
 import * as actions from '../../redux/actions/actions';
+import classes from './filters.module.scss';
 
-import classes from './filter.module.scss';
+const Filters = () =>
+  //   {
+  //   transferFilter,
+  // showAllTransfers,
+  // showWithoutTransfers,
+  // showOneTransfer,
+  // showTwoTransfers,
+  // showThreeTransfers,
+  // }
+  {
+    // const allTransfers = transferFilter[0];
+    // const withoutTransfers = transferFilter[1];
+    // const oneTransfer = transferFilter[2];
+    // const twoTransfers = transferFilter[3];
+    // const threeTransfers = transferFilter[4];
 
-const Filter = ({
-  transferFilter,
-  showAllTransfers,
-  showWithoutTransfers,
-  showOneTransfer,
-  showTwoTransfers,
-  showThreeTransfers,
-}) => {
-  const allTransfers = transferFilter[0];
-  const withoutTransfers = transferFilter[1];
-  const oneTransfer = transferFilter[2];
-  const twoTransfers = transferFilter[3];
-  const threeTransfers = transferFilter[4];
-
-  return (
-    <section className={classes.filter}>
-      <h2 className={classes.filter__title}>Количество пересадок</h2>
-      <ul className={classes.filter__list}>
+    return (
+      <section className={classes.filter}>
+        <h2 className={classes.filter__title}>Количество пересадок</h2>
+        <TransfersFilterList />
+        {/* <ul className={classes.filter__list}>
         <li className={classes['filter__list-item']}>
           <input
             className={`${classes.filter__input} ${classes['visually-hidden']}`}
@@ -90,32 +95,31 @@ const Filter = ({
             3 пересадки
           </label>
         </li>
-      </ul>
-    </section>
-  );
-};
+      </ul> */}
+      </section>
+    );
+  };
 
 const mapStateToProps = (state) => ({
   transferFilter: state.filterReducer,
-  tickets: state.ticketsReducer,
 });
 
-export default connect(mapStateToProps, actions)(Filter);
+export default connect(mapStateToProps, actions)(Filters);
 
-Filter.defaultProps = {
-  transferFilter: [false, false, false, false, false],
-  showAllTransfers: () => {},
-  showWithoutTransfers: () => {},
-  showOneTransfer: () => {},
-  showTwoTransfers: () => {},
-  showThreeTransfers: () => {},
-};
+// Filters.defaultProps = {
+//   transferFilter: [false, false, false, false, false],
+//   showAllTransfers: () => {},
+//   showWithoutTransfers: () => {},
+//   showOneTransfer: () => {},
+//   showTwoTransfers: () => {},
+//   showThreeTransfers: () => {},
+// };
 
-Filter.propTypes = {
-  transferFilter: PropTypes.arrayOf(PropTypes.bool),
-  showAllTransfers: PropTypes.func,
-  showWithoutTransfers: PropTypes.func,
-  showOneTransfer: PropTypes.func,
-  showTwoTransfers: PropTypes.func,
-  showThreeTransfers: PropTypes.func,
-};
+// Filters.propTypes = {
+//   transferFilter: PropTypes.arrayOf(PropTypes.bool),
+//   showAllTransfers: PropTypes.func,
+//   showWithoutTransfers: PropTypes.func,
+//   showOneTransfer: PropTypes.func,
+//   showTwoTransfers: PropTypes.func,
+//   showThreeTransfers: PropTypes.func,
+// };
