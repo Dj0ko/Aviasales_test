@@ -68,7 +68,10 @@ const getFilteredTickets = (arr, filter, sorting) => {
 
   filter.map((element, index) => {
     if (element && index > 0) {
-      newArr = [...newArr, ...arr.filter((el) => el.segments[0].stops.length === index - 1)];
+      newArr = [
+        ...newArr,
+        ...arr.filter((el) => el.segments[0].stops.length === index - 1 && el.segments[1].stops.length === index - 1),
+      ];
     }
     return newArr;
   });
