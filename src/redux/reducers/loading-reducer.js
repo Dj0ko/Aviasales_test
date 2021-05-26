@@ -1,9 +1,9 @@
 const loadingReducer = (state = false, action) => {
   switch (action.type) {
     case 'HAS_SPINNER':
-      return true;
-
-    case 'NO_SPINNER':
+      if (action.payload) {
+        return true;
+      }
       return false;
     
     default:

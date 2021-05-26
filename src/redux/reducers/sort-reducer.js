@@ -1,10 +1,10 @@
 const sortReducer = (state = null, action) => {
   switch (action.type) {
-    case 'CHEAPEST':
+    case 'CHANGE_SORTING':
+      if (action.payload) {
+        return true
+      }
       return false;
-
-    case 'FASTEST':
-      return true;
     
     default:
       return state;

@@ -6,12 +6,12 @@ import * as actions from '../../redux/actions/actions';
 
 import classes from './sorting.module.scss';
 
-const Sorting = ({ classButtonCheapest, classButtonFastest, showCheapest, showFastest }) => (
+const Sorting = ({ classButtonCheapest, classButtonFastest, changeSorting }) => (
   <div>
-    <button type="button" className={classButtonCheapest} onClick={showCheapest}>
+    <button type="button" className={classButtonCheapest} onClick={() => changeSorting(false)}>
       Самый дешевый
     </button>
-    <button type="button" className={classButtonFastest} onClick={showFastest}>
+    <button type="button" className={classButtonFastest} onClick={() => changeSorting(true)}>
       Самый быстрый
     </button>
   </div>
@@ -43,13 +43,11 @@ export default connect(mapStateToProps, actions)(Sorting);
 Sorting.defaultProps = {
   classButtonCheapest: `${classes.button} ${classes['button--cheapest']} ${classes['button--active']}`,
   classButtonFastest: `${classes.button} ${classes['button--fastest']}`,
-  showCheapest: () => {},
-  showFastest: () => {},
+  changeSorting: () => {},
 };
 
 Sorting.propTypes = {
   classButtonCheapest: PropTypes.string,
   classButtonFastest: PropTypes.string,
-  showCheapest: PropTypes.func,
-  showFastest: PropTypes.func,
+  changeSorting: PropTypes.func,
 };

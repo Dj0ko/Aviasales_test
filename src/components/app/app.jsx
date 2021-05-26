@@ -5,7 +5,7 @@ import Filters from '../filters/filters';
 import Product from '../product/product';
 import classes from './app.module.scss';
 import aviasalesDBService from '../../services/services';
-import { ticketsFetchDataSuccess, hasSpinner, noSpinner } from '../../redux/actions/actions';
+import { ticketsFetchDataSuccess, hasSpinner } from '../../redux/actions/actions';
 
 const App = ({ ticketsFetchData }) => {
   useEffect(ticketsFetchData, [ticketsFetchData]);
@@ -26,11 +26,11 @@ const mapDispatchToProps = (dispatch) => {
       .then((data) => {
         if (!data.body.stop) {
           dispatch(ticketsFetchDataSuccess(data.body.tickets));
-          dispatch(hasSpinner());
+          dispatch(hasSpinner(true));
           return getAllTickets(data.searchId, dispatch);
         }
         if (data.body.stop) {
-          dispatch(noSpinner());
+          dispatch(hasSpinner(false));
           dispatch(ticketsFetchDataSuccess(data.body.tickets));
         }
         return data.body.tickets;

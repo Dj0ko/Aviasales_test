@@ -6,14 +6,7 @@ import TransferFilter from '../transfer-filter/transfer-filter';
 import * as actions from '../../redux/actions/actions';
 import classes from './transfers-filter-list.module.scss';
 
-const TransfersFilterList = ({
-  transferFilter,
-  showAllTransfers,
-  showWithoutTransfers,
-  showOneTransfer,
-  showTwoTransfers,
-  showThreeTransfers,
-}) => {
+const TransfersFilterList = ({ transferFilter, showAllTransfers, changeFilter }) => {
   const [
     allTransfersCheck,
     withoutTransfersCheck,
@@ -27,35 +20,38 @@ const TransfersFilterList = ({
       label: 'Все',
       id: 'allTransfers',
       actionCreator: showAllTransfers,
-      checked: allTransfersCheck,
+      checked:
+        allTransfersCheck || (withoutTransfersCheck && oneTransferCheck && twoTransfersCheck && threeTransfersCheck),
     },
     {
       label: 'Без пересадок',
       id: 'withoutTransfers',
-      actionCreator: showWithoutTransfers,
+      actionCreator: changeFilter,
       checked: withoutTransfersCheck,
     },
     {
       label: '1 пересадка',
       id: 'oneTransfer',
-      actionCreator: showOneTransfer,
+      actionCreator: changeFilter,
       checked: oneTransferCheck,
     },
     {
       label: '2 пересадки',
       id: 'twoTransfers',
-      actionCreator: showTwoTransfers,
+      actionCreator: changeFilter,
       checked: twoTransfersCheck,
     },
     {
       label: '3 пересадки',
       id: 'threeTransfers',
-      actionCreator: showThreeTransfers,
+      actionCreator: changeFilter,
       checked: threeTransfersCheck,
     },
   ];
 
-  const transfersFilters = transfersArr.map((filter) => <TransferFilter {...filter} key={filter.label} />);
+  const transfersFilters = transfersArr.map((filter, index) => (
+    <TransferFilter {...filter} index={index} key={filter.label} />
+  ));
 
   return <ul className={classes.filter__list}>{transfersFilters}</ul>;
 };
@@ -68,18 +64,12 @@ export default connect(mapStateToProps, actions)(TransfersFilterList);
 
 TransfersFilterList.defaultProps = {
   transferFilter: [true, true, true, true, true],
+  changeFilter: () => {},
   showAllTransfers: () => {},
-  showWithoutTransfers: () => {},
-  showOneTransfer: () => {},
-  showTwoTransfers: () => {},
-  showThreeTransfers: () => {},
 };
 
 TransfersFilterList.propTypes = {
   transferFilter: PropTypes.arrayOf(PropTypes.bool),
+  changeFilter: PropTypes.func,
   showAllTransfers: PropTypes.func,
-  showWithoutTransfers: PropTypes.func,
-  showOneTransfer: PropTypes.func,
-  showTwoTransfers: PropTypes.func,
-  showThreeTransfers: PropTypes.func,
 };

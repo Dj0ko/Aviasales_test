@@ -1,20 +1,19 @@
-export const showCheapest = () => ({type: 'CHEAPEST'});
-
-export const showFastest = () => ({type: 'FASTEST'});
+export const changeSorting = (payload) => ({
+  type: 'CHANGE_SORTING',
+  payload
+});
 
 export const showAllTransfers = () => ({type: 'ALL_TRANSFERS'});
 
-export const showWithoutTransfers = () => ({type: 'WITHOUT_TRANSFERS'});
+export const changeFilter = (payload) => ({
+  type: 'CHANGE_FILTER',
+  payload
+});
 
-export const showOneTransfer = () => ({type: 'ONE_TRANSFER'});
-
-export const showTwoTransfers = () => ({type: 'TWO_TRANSFERS'});
-
-export const showThreeTransfers = () => ({type: 'THREE_TRANSFERS'});
-
-export const hasSpinner = () => ({type: 'HAS_SPINNER'});
-
-export const noSpinner = () => ({type: 'NO_SPINNER'});
+export const hasSpinner = (payload) => ({
+  type: 'HAS_SPINNER',
+  payload
+});
 
 export const ticketsFetchDataSuccess = (tickets) => ({  
   type: 'TICKETS_FETCH_DATA_SUCCESS',

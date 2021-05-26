@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import classes from './transfer-filter.module.scss';
 
-const TransferFilter = ({ label, id, actionCreator, checked }) => (
+const TransferFilter = ({ label, id, actionCreator, checked, index }) => (
   <li className={classes['filter__list-item']}>
     <input
       className={`${classes.filter__input} ${classes['visually-hidden']}`}
       type="checkbox"
       id={id}
       name="transfers"
-      onChange={actionCreator}
+      onChange={() => actionCreator(index)}
       checked={checked}
     />
     <label className={classes.filter__label} htmlFor={id}>
@@ -26,6 +26,7 @@ TransferFilter.defaultProps = {
   id: '',
   actionCreator: () => {},
   checked: true,
+  index: '',
 };
 
 TransferFilter.propTypes = {
@@ -33,4 +34,5 @@ TransferFilter.propTypes = {
   id: PropTypes.string,
   actionCreator: PropTypes.func,
   checked: PropTypes.bool,
+  index: PropTypes.number,
 };
