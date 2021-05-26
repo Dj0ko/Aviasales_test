@@ -1,11 +1,13 @@
-const filterReducer = (state = [true, true, true, true, true], action) => {
-  switch (action.type) {
+const filterReducer = (state = Array(5).fill(true), action) => {
+  const { type, payload } = action;
+
+  switch (type) {
     case 'ALL_TRANSFERS':
-      return (state[0] || (!state[0] && state[1] && state[2] && state[3] && state[4])) ? [false, false, false, false, false] : [true, true, true, true, true];
+      return (state[0] || (!state[0] && state.slice(1).every(element => element === true))) ? Array(5).fill(false) : Array(5).fill(true);
 
     case 'CHANGE_FILTER':
-      return (state[action.payload]) ? [false, ...state.slice(1, action.payload), !state[action.payload], ...state.slice(action.payload + 1)] : 
-      [...state.slice(0, action.payload), !state[action.payload], ...state.slice(action.payload + 1)]
+      return (state[payload]) ? [false, ...state.slice(1, payload), !state[payload], ...state.slice(payload + 1)] : 
+      [...state.slice(0, payload), !state[payload], ...state.slice(payload + 1)]
       
     
     default:
